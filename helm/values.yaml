@@ -1,0 +1,26 @@
+appname: ramselvin-saas
+environment: production
+namespace: ramselvin-saas
+
+image: ramselvin-saas
+
+dockerCredentials:
+  registry: ""
+  username: ""
+  password: ""
+
+pullSecretDockerName: docker-credentials
+
+auth:
+  image: "gonzalezelvin/auth:latest"
+backend:
+  image: "gonzalezelvin/backend:latest"
+frontend:
+  image: "gonzalezelvin/frontend:latest"
+admin:
+  image: "gonzalezelvin/admin:latest"
+client:
+  image: "gonzalezelvin/client:latest"
+rabbitmq:
+  image: "rabbitmq:3-management"
+  name: rabbitmq

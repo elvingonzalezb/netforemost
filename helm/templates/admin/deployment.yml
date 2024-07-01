@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $.Values.appname }}-{{ $.Values.environment }}-admin-deployment
+  namespace: {{ $.Values.namespace }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ $.Values.appname }}-{{ $.Values.environment }}-admin
+  template:
+    metadata:
+      labels:
+        app: {{ $.Values.appname }}-{{ $.Values.environment }}-admin
+    spec:
+      containers:
+      - name: admin-container
+        image: {{ $.Values.admin.image }}
+      imagePullSecrets:
+      - name: {{ $.Values.pullSecretDockerName }}

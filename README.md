@@ -1,4 +1,4 @@
-# netforemost
+# NetForemost
 Prueba de backend en NodeJS
 
 
@@ -9,4 +9,4 @@ Wiki con todo el detalle del proceso realizado:
 
 
 Enlace para verificar pequeña App: 
-    * http://ramselvin.con
+   * http://ramselvin.com

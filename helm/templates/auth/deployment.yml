@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $.Values.appname }}-{{ $.Values.environment }}-auth-deployment
+  namespace: {{ $.Values.namespace }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ $.Values.appname }}-{{ $.Values.environment }}-auth
+  template:
+    metadata:
+      labels:
+        app: {{ $.Values.appname }}-{{ $.Values.environment }}-auth
+    spec:
+      containers:
+      - name: auth-container
+        image: {{ $.Values.auth.image }}
+      imagePullSecrets:
+      - name: {{ $.Values.pullSecretDockerName }}

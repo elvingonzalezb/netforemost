@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $.Values.appname }}-{{ $.Values.environment }}-frontend-deployment
+  namespace: {{ $.Values.namespace }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ $.Values.appname }}-{{ $.Values.environment }}-frontend
+  template:
+    metadata:
+      labels:
+        app: {{ $.Values.appname }}-{{ $.Values.environment }}-frontend
+    spec:
+      containers:
+      - name: frontend-container
+        image: {{ $.Values.frontend.image }}
+      imagePullSecrets:
+      - name: {{ $.Values.pullSecretDockerName }}
